@@ -1,22 +1,22 @@
 @startuml
 
 card project {
-file package.json
-folder node_modules {
-package antd
-package webpack
-package "...etc"
+    file package.json
+    folder node_modules {
+    package antd
+    package webpack
+    package "...etc"
 }
 folder public {
-file index.html
-file favicon.ico
-file logo192.png
-file manifest.json
+    file index.html
+    file favicon.ico
+    file logo192.png
+    file manifest.json
 }
 folder src {
-file index.js
-file App.js
-}
+    file index.js
+    file App.js
+    }
 }
 
 
