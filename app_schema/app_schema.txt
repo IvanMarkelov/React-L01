@@ -1,0 +1,44 @@
+@startuml
+
+card project {
+file package.json
+folder node_modules {
+package antd
+package webpack
+package "...etc"
+}
+folder public {
+file index.html
+file favicon.ico
+file logo192.png
+file manifest.json
+}
+folder src {
+file index.js
+file App.js
+}
+}
+
+
+node localhost:3000 {
+    artifact "[index.html]" {
+    file "[favicon.ico]" as icon
+    file "[logo192.png]" as logo
+    file "[manifest.json]" as manifest
+    file "[bundle.js]"
+    file "[vendors~main.chunk.js]" as vendors
+    file "[main.chunk.js]" as mainchunk
+    }
+}
+
+package.json *-[#green]-* node_modules
+node_modules =[#green]=> index.js
+node_modules -[#green]-> vendors
+index.html -[#blue]-> [index.html]
+favicon.ico -[#blue]-> icon
+logo192.png -[#blue]-> logo
+manifest.json -[#blue]-> manifest
+App.js --> index.js
+src --> mainchunk
+
+@enduml
